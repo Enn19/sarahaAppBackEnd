@@ -1,0 +1,32 @@
+<%- include('headerHtml.ejs') %>
+    <div class="container p-2   ">
+        <form action="/auth/logIn" method="post" class="p-5 border border-3">
+            <div class="p-3">
+                <h1 class="text-center">logIn</h1>
+                <% if (validation?.includes("email")) { %>
+                    <p class="text-danger"> invalid email</p>
+                    <% } %>
+                        <% if (emailError) { %>
+                            <p class="text-danger text-center fs-2">
+                                <%= emailError %>
+                            </p>
+                            <% } %>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" name="email" class="form-control" value="<%= data?.email %>"
+                                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+                                </div>
+                                <% if (validation?.includes("password")) { %>
+                                    <p class="text-danger"> invalid Password</p>
+                                    <% } %>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" name="password" value="<%= data?.password %>"
+                                        class="form-control" id="exampleInputPassword1" placeholder="password">
+                                </div>
+                                <button type="submit" class="btn btn-primary ">LogIn</button>
+                                <p class="text-center pt-2 ">Don't have email? <a href="/auth">signUp</a></p>
+            </div>
+        </form>
+    </div>
+    <%- include('footerHtml.ejs') %>

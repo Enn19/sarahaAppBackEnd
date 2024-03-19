@@ -1,0 +1,31 @@
+<!-- shareProfile.ejs -->
+<%- include('headerHtml.ejs') %>
+<div class="w-75 m-auto my-5">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-danger px-5">Log Out</button>
+    </div>
+    <div class="border border-3 rounded-3 text-center mt-3">
+        <% if (user.image) { %>
+            <img src="<%= user.image.secure_url %>" />
+        <% } %>
+        <h1><%= user.userName %></h1>
+    </div>
+
+    <div class="border border-3 rounded-3 mt-3">
+        <form action="/message/<%= user._id %>" method="post" class="p-4" >
+            <% if (status == "invalid") { %>
+                <p class="text-center text-danger">Invalid send message</p>
+            <% } %>
+            <% if (status == "done") { %>
+                <p class="text-center text-success">Message sent</p>
+            <% } %>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+            </div>
+            <input type="hidden" name="id" value="<%= user._id %>">
+            <button type="submit" class="btn btn-primary mt-3">Send</button>
+        </form>
+    </div>
+</div>
+<%- include('footerHtml.ejs') %>

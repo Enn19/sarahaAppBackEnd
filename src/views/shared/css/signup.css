@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+    color: white;
+    font-weight: 200;
+}
+
+.form-label {
+    padding: 5px 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}

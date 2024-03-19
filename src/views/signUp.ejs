@@ -1,0 +1,37 @@
+<%- include('headerHtml.ejs') %>
+    <div class="container p-2   ">
+        <form action="/auth/signUp" method="post" class="p-5 border border-3">
+            <div class="p-3">
+                <h1 class="text-center">signUp</h1>
+                <% if (emailError) { %>
+                    <p class="text-danger text-center fs-2">
+                        <%= emailError %>
+                    </p>
+                    <% } %>
+                        <div class="mb-3 ">
+                            <label for="userName" class="form-label">User Name</label>
+                            <input type="text" name="userName" value="<%= data?.userName %>" class="form-control"
+                                id="userName" aria-describedby="emailHelp" placeholder="userName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" name="email" class="form-control" 
+                             id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email"value="<%= data?.email %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control"
+                                value="<%= data?.password %>" id=" exampleInputPassword1" placeholder="password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword2" class="form-label">confirm Password</label>
+                            <input type="password" name="cPassword" class="form-control"
+                                value="<%= data?.cPassword %>" id="exampleInputPassword2"
+                                placeholder="confirm password">
+                        </div>
+                        <button type="submit" class="btn btn-primary ">SignUp</button>
+                        <p class="text-center pt-2 ">already have email? <a href="auth/logIn">logIn</a></p>
+            </div>
+        </form>
+    </div>
+    <%- include('footerHtml.ejs') %>
